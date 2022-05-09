@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marielagcw.health_center.model.dto.AppointmentDTO;
 import com.marielagcw.health_center.repository.IAppointmentRepository;
 import com.marielagcw.health_center.service.IAppointmentService;
+import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class AppointmentService implements IAppointmentService {
     ──────────── */
     @Override
     public AppointmentDTO saveAndFlush(AppointmentDTO appointmentDTO) {
-        return null;
+        throw new NotImplementedException();
     }
 
     /* ────────────
@@ -31,7 +32,8 @@ public class AppointmentService implements IAppointmentService {
     ──────────── */
     @Override
     public List<AppointmentDTO> findAll() {
-        return null;
+        throw new NotImplementedException();
+
     }
 
     /* ────────────
@@ -39,7 +41,7 @@ public class AppointmentService implements IAppointmentService {
     ──────────── */
     @Override
     public AppointmentDTO findById(Long id) {
-        return null;
+        throw new NotImplementedException();
     }
 
     /* ────────────
@@ -47,6 +49,7 @@ public class AppointmentService implements IAppointmentService {
     ──────────── */
     @Override
     public void deleteById(Long id) {
+        throw new NotImplementedException();
 
     }
 
@@ -55,6 +58,6 @@ public class AppointmentService implements IAppointmentService {
     ──────────── */
     @Override
     public void update(AppointmentDTO appointmentDTO) {
-
+        throw new NotImplementedException();
     }
 }

@@ -1,4 +1,4 @@
 package com.marielagcw.health_center.model.dto;
 
-public class SecretaryDTO {
+public class GenericUserDTO {
 }
