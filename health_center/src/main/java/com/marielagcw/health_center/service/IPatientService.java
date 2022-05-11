@@ -1,9 +1,12 @@
 package com.marielagcw.health_center.service;
 
 import com.marielagcw.health_center.model.dto.PatientDTO;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public interface IPatientService {
@@ -11,13 +14,13 @@ public interface IPatientService {
     PatientDTO saveAndFlush(PatientDTO patientDTO);
 
     // FIND ALL
-    List<PatientDTO> findAll();
+    List<PatientDTO> findAll(Pageable pageable);
 
     // FIND BY ID
-    PatientDTO findById(Long id);
+    PatientDTO findById(@NotNull Long id) throws NoSuchElementException;
 
     // DELETE BY ID
-    void deleteById(Long id);
+    void deleteById(@NotNull Long id) throws NoSuchElementException;
 
     // UPDATE BY ID
     void update(PatientDTO patientDTO);
