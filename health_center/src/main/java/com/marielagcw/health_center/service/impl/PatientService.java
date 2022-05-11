@@ -2,7 +2,9 @@ package com.marielagcw.health_center.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marielagcw.health_center.model.dto.PatientDTO;
+import com.marielagcw.health_center.model.dto.SpecialistDTO;
 import com.marielagcw.health_center.model.entity.Patient;
+import com.marielagcw.health_center.model.entity.Specialist;
 import com.marielagcw.health_center.repository.IPatientRepository;
 import com.marielagcw.health_center.service.IPatientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,9 +40,10 @@ public class PatientService implements IPatientService {
     public List<PatientDTO> findAll(Pageable pageable) {
         List<Patient> patientList = patientRepository.findAll(pageable).getContent();
         return patientList.stream()
-                .map(patient -> mapper.convertValue(patientList, PatientDTO.class))
+                .map(patient -> mapper.convertValue(patient, PatientDTO.class))
                 .collect(Collectors.toList());
     }
+
 
     // FIND BY ID
     @Override

@@ -31,8 +31,8 @@ public class PatientController {
         return ResponseEntity.ok().body("El Paciente fue agregado con éxito");
     }
 
-    // FIND ALL / GET ALL
-    @GetMapping("/find") //TODO Por qué me marca como advertencia los optionals del request param? pasa en los 3 controllers,
+    // FIND ALL / GET ALL//TODO Por qué me marca como advertencia los optionals del request param? pasa en los 3 controllers,
+    @GetMapping("/find")
     public ResponseEntity<List<PatientDTO>> findAll(@RequestParam Optional<@PositiveOrZero Integer> page,
                                                     @RequestParam Optional<@PositiveOrZero Integer> size) {
         Pageable pageable;
@@ -46,24 +46,25 @@ public class PatientController {
     }
 
     // FIND BY ID // GET BY ID
-    @GetMapping("/{id}")
+    @GetMapping("/find/{id}")
     public ResponseEntity<PatientDTO> findById(@PathVariable @NotNull Long id) {
         PatientDTO foundPatientDTO = patientService.findById(id);
         return ResponseEntity.ok(foundPatientDTO);
     }
 
     // DELETE BY ID
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
+        patientService.deleteById(id);
         return ResponseEntity.ok().body("El Paciente con fue eliminado con éxito");
     }
 
     // UPDATE BY ID / PUT BY ID
-    @PutMapping("/{id}")
-    public ResponseEntity<PatientDTO> update(@PathVariable Long id, @RequestBody PatientDTO patientDTO) throws Exception {
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody PatientDTO patientDTO) throws Exception {
         patientDTO.setId(id);
-        PatientDTO updatedPatient = patientService.findById(id);
-        return ResponseEntity.ok(updatedPatient);
+       patientService.update(patientDTO);
+        return ResponseEntity.ok().body("El paciente fue modificado con éxito");
     }
 
 

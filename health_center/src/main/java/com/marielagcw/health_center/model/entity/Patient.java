@@ -5,8 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.HashSet;
-import java.util.Set;
+
 
 @Getter
 @RequiredArgsConstructor
@@ -22,7 +21,6 @@ public class Patient {
     @NotBlank(message = "El apellido no puede estar en blanco")
     private String lastname;
     private String address;
-    @OneToMany(mappedBy = "patient")
-    private Set<Appointment> appointmentList = new HashSet<>();
+
 
 }// Cierre

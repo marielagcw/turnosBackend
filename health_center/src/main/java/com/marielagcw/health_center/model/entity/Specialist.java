@@ -5,8 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.HashSet;
-import java.util.Set;
+
 
 @Getter
 @RequiredArgsConstructor
@@ -23,8 +22,7 @@ public class Specialist {
     private String lastname;
     @NotBlank(message = "La especialidad no puede estar en blanco")
     private String specialty;
-    @OneToMany(mappedBy = "specialist")
-    private Set<Appointment> appointmentList = new HashSet<>();
+
 
 
 }// Cierre

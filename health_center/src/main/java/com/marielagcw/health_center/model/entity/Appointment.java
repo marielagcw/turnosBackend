@@ -17,11 +17,8 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Past(message = "La fecha no puede ser anterior a la actual")
     private LocalDate dateAppointment;
-    @Past(message = "La hora no puede ser anterior a la actual")
     private LocalTime startAppointment;
-    @Past(message = "La hora no puede ser anterior a la actual")
     private LocalTime endAppointment;
     @ManyToOne
     @JoinColumn(name="patient_id", referencedColumnName="id")

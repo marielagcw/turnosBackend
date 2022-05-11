@@ -48,24 +48,25 @@ public class SpecialistController {
     }
 
     // FIND BY ID // GET BY ID
-    @GetMapping("/{id}")
+    @GetMapping("/find/{id}")
     public ResponseEntity<SpecialistDTO> findById(@PathVariable @NotNull Long id) {
         SpecialistDTO foundSpecialistDTO = specialistService.findById(id);
         return ResponseEntity.ok(foundSpecialistDTO);
     }
 
     // DELETE BY ID
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
+        specialistService.deleteById(id);
         return ResponseEntity.ok().body("El Especialista fue eliminado con éxito");
     }
 
     // UPDATE BY ID / PUT BY ID
-    @PutMapping("/{id}")
-    public ResponseEntity<SpecialistDTO> update(@PathVariable Long id, @RequestBody SpecialistDTO specialistDTO) throws Exception {
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody SpecialistDTO specialistDTO) throws Exception {
         specialistDTO.setId(id);
-        SpecialistDTO updatedSpecialist = specialistService.findById(id);
-        return ResponseEntity.ok(updatedSpecialist);
+        specialistService.update(specialistDTO);
+        return ResponseEntity.ok().body("El especialista fue modificado con éxito");
     }
 
 } // Cierre

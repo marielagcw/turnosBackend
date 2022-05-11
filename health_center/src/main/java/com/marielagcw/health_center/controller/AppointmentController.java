@@ -46,24 +46,25 @@ public class AppointmentController {
     }
 
     // FIND BY ID // GET BY ID
-    @GetMapping("/{id}")
+    @GetMapping("/find/{id}")
     public ResponseEntity<AppointmentDTO> findById(@PathVariable @NotNull Long id) {
         AppointmentDTO foundAppointmentDTO = appointmentService.findById(id);
         return ResponseEntity.ok(foundAppointmentDTO);
     }
 
     // DELETE BY ID
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
+        appointmentService.deleteById(id);
         return ResponseEntity.ok().body("El Turno fue eliminado con éxito");
     }
 
     // UPDATE BY ID / PUT BY ID
-    @PutMapping("/{id}")
-    public ResponseEntity<AppointmentDTO> update(@PathVariable Long id, @RequestBody AppointmentDTO appointmentDTO) throws Exception {
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody AppointmentDTO appointmentDTO) throws Exception {
         appointmentDTO.setId(id);
-        AppointmentDTO updateAppointment = appointmentService.findById(id);
-        return ResponseEntity.ok(updateAppointment);
+       appointmentService.update(appointmentDTO);
+       return ResponseEntity.ok().body("El turno fue modificado con éxito");
     }
 
 } // Cierre
