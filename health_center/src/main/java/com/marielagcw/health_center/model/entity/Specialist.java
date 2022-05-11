@@ -1,24 +1,30 @@
 package com.marielagcw.health_center.model.entity;
 
 import lombok.Getter;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import java.util.List;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
-@Setter
+@RequiredArgsConstructor
+@Entity
 public class Specialist {
 
     //ATTRIBUTES
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "El nombre no puede estar en blanco")
     private String name;
+    @NotBlank(message = "El apellido no puede estar en blanco")
     private String lastname;
+    @NotBlank(message = "La especialidad no puede estar en blanco")
     private String specialty;
-    private List<Appointment> appointmentList;
+    @OneToMany(mappedBy = "specialist")
+    private Set<Appointment> appointmentList = new HashSet<>();
 
-    // CONSTRUCTORS
-    public Specialist() {
-    }
 
 }// Cierre
