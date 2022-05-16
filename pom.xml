@@ -39,10 +39,10 @@
             <version>2.1.210</version>
         </dependency>
         <!--    PostgreSQL     -->
-<!--        <dependency>-->
-<!--            <groupId>org.postgresql</groupId>-->
-<!--            <artifactId>postgresql</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
         <!--    Lombok     -->
         <dependency>
             <groupId>org.projectlombok</groupId>
