@@ -40,7 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         web.debug(true);
     }
 
-    @Override //TODO ¿Qué significa exactamente cada parte de la configuración?
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf()
                 .disable()
