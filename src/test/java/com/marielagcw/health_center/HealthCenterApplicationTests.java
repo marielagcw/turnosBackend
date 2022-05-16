@@ -24,6 +24,7 @@ class HealthCenterApplicationTests {
     private MockMvc mockMvc;
 
     @Test
+    @Order(0)
     void contextLoads() {
     }
 
