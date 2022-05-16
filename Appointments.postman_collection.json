@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "3b77e1ee-2ac8-4c9c-8375-1ac20e7530be",
+		"name": "Appointments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LocalHost Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dateAppointment\": \"2023-05-11\",\r\n    \"startAppointment\": \"23:00:45\",\r\n    \"endAppointment\": \"23:00:45\",\r\n    \"specialist\": {\r\n        \"id\": 2\r\n    },\r\n    \"patient\": {\r\n        \"id\": 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/appointments/new",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"appointments",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Heroku Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dateAppointment\": \"2023-05-11\",\r\n    \"startAppointment\": \"23:00:45\",\r\n    \"endAppointment\": \"23:00:45\",\r\n    \"specialist\": {\r\n        \"id\": 1\r\n    },\r\n    \"patient\": {\r\n        \"id\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}/appointments/new",
+					"host": [
+						"{{heroku}}"
+					],
+					"path": [
+						"appointments",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Localhost GetAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Nombre1\",\r\n    \"lastname\": \"Apellido1\",\r\n    \"specialty\": \"Especialidad1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/appointments/find?size=2&page=0",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"appointments",
+						"find"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "2"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Heroku GetAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Nombre1\",\r\n    \"lastname\": \"Apellido1\",\r\n    \"specialty\": \"Especialidad1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}/appointments/find?size=2&page=0",
+					"host": [
+						"{{heroku}}"
+					],
+					"path": [
+						"appointments",
+						"find"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "2"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Localhost GetById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Nombre1\",\r\n    \"lastname\": \"Apellido1\",\r\n    \"specialty\": \"Especialidad1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/appointments/find/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"appointments",
+						"find",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Heroku GetById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Nombre1\",\r\n    \"lastname\": \"Apellido1\",\r\n    \"specialty\": \"Especialidad1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}/appointments/find/1",
+					"host": [
+						"{{heroku}}"
+					],
+					"path": [
+						"appointments",
+						"find",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Localhost DeleteById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Nombre1\",\r\n    \"lastname\": \"Apellido1\",\r\n    \"specialty\": \"Especialidad1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/appointments/delete/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"appointments",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Heroku DeleteById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Nombre1\",\r\n    \"lastname\": \"Apellido1\",\r\n    \"specialty\": \"Especialidad1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}/appointments/delete/1",
+					"host": [
+						"{{heroku}}"
+					],
+					"path": [
+						"appointments",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Localhost UpdateById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\": 2,\r\n        \"dateAppointment\": \"2024-05-11\",\r\n        \"startAppointment\": \"23:00:45\",\r\n        \"endAppointment\": \"23:00:45\",\r\n        \"specialist\": {\r\n            \"id\": 1,\r\n            \"name\": \"Nombre1\",\r\n            \"lastname\": \"Apellido1\",\r\n            \"specialty\": \"Especialidad1\"\r\n        },\r\n        \"patient\": {\r\n            \"id\": 1,\r\n            \"name\": \"Nombre1\",\r\n            \"lastname\": \"Apellido1\",\r\n            \"address\": \"Domicilio1\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/appointments/update/2",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"appointments",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Heroku UpdateById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\": 2,\r\n        \"dateAppointment\": \"2024-05-11\",\r\n        \"startAppointment\": \"23:00:45\",\r\n        \"endAppointment\": \"23:00:45\",\r\n        \"specialist\": {\r\n            \"id\": 1,\r\n            \"name\": \"Nombre1\",\r\n            \"lastname\": \"Apellido1\",\r\n            \"specialty\": \"Especialidad1\"\r\n        },\r\n        \"patient\": {\r\n            \"id\": 1,\r\n            \"name\": \"Nombre1\",\r\n            \"lastname\": \"Apellido1\",\r\n            \"address\": \"Domicilio1\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{heroku}}/appointments/update/2",
+					"host": [
+						"{{heroku}}"
+					],
+					"path": [
+						"appointments",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwt}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

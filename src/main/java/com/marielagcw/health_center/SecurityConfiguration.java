@@ -42,7 +42,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/v3/api-docs/**",
                         "/swagger-ui*", "/swagger-ui/**").permitAll()
-                .antMatchers("/login/**", "/authenticate", "https://healthcentermarielagcw.herokuapp.com/authenticate").permitAll()
+                .antMatchers("/login/**", "/authenticate").permitAll()
                 .antMatchers("/specialists/**").hasAnyRole("USER")
                 .antMatchers("/patients/**").hasAnyRole("USER")
                 .antMatchers("/appointments/**").hasAnyRole("USER")
