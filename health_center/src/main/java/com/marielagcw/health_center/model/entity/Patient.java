@@ -22,5 +22,4 @@ public class Patient {
     private String lastname;
     private String address;
 
-
-}// Cierre
+}

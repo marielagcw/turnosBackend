@@ -13,7 +13,7 @@ public class UserController {
 
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public ResponseEntity<?> user() throws Exception{
+    public ResponseEntity<?> user() throws Exception {
 
         UserDetails userDatails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -22,4 +22,4 @@ public class UserController {
 
         return ResponseEntity.ok(user);
     }
-}//Cierre
+}

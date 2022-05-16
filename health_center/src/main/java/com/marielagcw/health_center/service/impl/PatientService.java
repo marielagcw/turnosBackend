@@ -2,9 +2,7 @@ package com.marielagcw.health_center.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marielagcw.health_center.model.dto.PatientDTO;
-import com.marielagcw.health_center.model.dto.SpecialistDTO;
 import com.marielagcw.health_center.model.entity.Patient;
-import com.marielagcw.health_center.model.entity.Specialist;
 import com.marielagcw.health_center.repository.IPatientRepository;
 import com.marielagcw.health_center.service.IPatientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,4 +63,4 @@ public class PatientService implements IPatientService {
         Patient updatedPatient = mapper.convertValue(patientDTO, Patient.class);
         patientRepository.saveAndFlush(updatedPatient);
     }
-} // Cierre
+}

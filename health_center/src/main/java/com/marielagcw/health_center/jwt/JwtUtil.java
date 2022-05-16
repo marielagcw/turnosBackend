@@ -6,6 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,12 +26,12 @@ public class JwtUtil {
         return extractClaimDate(token);
     }
 
-    public Date extractClaimDate(String token){
+    public Date extractClaimDate(String token) {
         Claims claims = extractAllClaims(token);
         return claims.getExpiration();
     }
 
-    public String extractClaimUsername(String token){
+    public String extractClaimUsername(String token) {
         Claims claims = extractAllClaims(token);
         return claims.getSubject();
     }
@@ -54,7 +55,7 @@ public class JwtUtil {
                 .setClaims(claims)
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 +60 * 10))
+                .setExpiration(Date.from(Instant.now().plusSeconds(3000)))
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
                 .compact();
     }
@@ -68,5 +69,4 @@ public class JwtUtil {
         return extractExpiration(token).before(new Date());
     }
 
-
-} // Cierre
+}

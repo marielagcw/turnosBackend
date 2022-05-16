@@ -30,7 +30,7 @@ public class AuthenticationService implements UserDetailsService {
         Set<GrantedAuthority> autorizaciones = new HashSet<>();
         GrantedAuthority autorizacion = null;
         for (Rol rol : user.get().getRoles()) {
-            autorizacion = new SimpleGrantedAuthority(rol.getName());
+            autorizacion = new SimpleGrantedAuthority("ROLE_" + rol.getName());
             autorizaciones.add(autorizacion);
         }
         org.springframework.security.core.userdetails.User userDetail = new org.springframework.security.core.userdetails.User(user.get().getName(),
@@ -42,5 +42,4 @@ public class AuthenticationService implements UserDetailsService {
                 autorizaciones);
         return userDetail;
     }
-
-}//Cierre
+}

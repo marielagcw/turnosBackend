@@ -44,7 +44,7 @@ public class SpecialistService implements ISpecialistService {
 
     // FIND BY ID
     @Override
-    public SpecialistDTO findById(@NotNull Long id) throws NoSuchElementException { //TODO Hacer TODAS las excepciones!
+    public SpecialistDTO findById(@NotNull Long id) throws NoSuchElementException {
         Specialist foundSpecialist = specialistRepository.findById(id).orElseThrow(() -> new NoSuchElementException(String.format("No existe el Especialista con id %d", id)));
         return mapper.convertValue(foundSpecialist, SpecialistDTO.class);
 
@@ -63,4 +63,4 @@ public class SpecialistService implements ISpecialistService {
         Specialist updatedSpecialist = mapper.convertValue(specialistDTO, Specialist.class);
         specialistRepository.saveAndFlush(updatedSpecialist);
     }
-} // Cierre
+}

@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -34,16 +35,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(authenticationService);
     }
 
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.debug(true);
+    }
+
     @Override //TODO ¿Qué significa exactamente cada parte de la configuración?
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/specialists/**").permitAll()
-                .antMatchers("/patients/**").permitAll()
-                .antMatchers("/appointments/**").permitAll()
-                .anyRequest().permitAll()
-                //.authenticated()
+                .antMatchers("/login/**", "/authenticate").permitAll()
+                .antMatchers("/specialists/**").hasAnyRole("USER")
+                .antMatchers("/patients/**").hasAnyRole("USER")
+                .antMatchers("/appointments/**").hasAnyRole("USER")
+                .anyRequest()
+                //.permitAll()
+                .authenticated()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

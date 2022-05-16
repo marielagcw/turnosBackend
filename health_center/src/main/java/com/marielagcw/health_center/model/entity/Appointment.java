@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Past;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -21,10 +20,9 @@ public class Appointment {
     private LocalTime startAppointment;
     private LocalTime endAppointment;
     @ManyToOne
-    @JoinColumn(name="patient_id", referencedColumnName="id")
+    @JoinColumn(name = "patient_id", referencedColumnName = "id")
     private Specialist specialist;
     @ManyToOne
-    @JoinColumn(name="specialist_id", referencedColumnName = "id")
+    @JoinColumn(name = "specialist_id", referencedColumnName = "id")
     private Patient patient;
-
 }

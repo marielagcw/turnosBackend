@@ -32,4 +32,4 @@ public class AuthenticationRequest {
         this.password = password;
     }
 
-}//Cierre
+}

@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/appointments")
@@ -32,16 +30,9 @@ public class AppointmentController {
     }
 
     // FIND ALL / GET ALL
-    @GetMapping("/find") //TODO Por qué me marca como advertencia los optionals del request param?,
-    public ResponseEntity<List<AppointmentDTO>> findAll(@RequestParam Optional<@PositiveOrZero Integer> page,
-                                                        @RequestParam Optional<@PositiveOrZero Integer> size) {
-        Pageable pageable;
-        if (size.isPresent()) {
-            pageable = Pageable.ofSize(size.get()).withPage(page.orElse(0));
-        } else {
-            pageable = Pageable.unpaged();
-        }
-        List<AppointmentDTO> appointmentDTOList = appointmentService.findAll(pageable);
+    @GetMapping("/find")
+    public ResponseEntity<List<AppointmentDTO>> findAll(Pageable page ) {
+        List<AppointmentDTO> appointmentDTOList = appointmentService.findAll(page);
         return ResponseEntity.ok(appointmentDTOList);
     }
 
@@ -67,4 +58,5 @@ public class AppointmentController {
        return ResponseEntity.ok().body("El turno fue modificado con éxito");
     }
 
-} // Cierre
+
+}

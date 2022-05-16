@@ -23,6 +23,4 @@ public class Specialist {
     @NotBlank(message = "La especialidad no puede estar en blanco")
     private String specialty;
 
-
-
-}// Cierre
+}

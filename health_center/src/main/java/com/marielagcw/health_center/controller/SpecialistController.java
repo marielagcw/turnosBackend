@@ -8,12 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PositiveOrZero;
 
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/specialists")
@@ -35,15 +33,8 @@ public class SpecialistController {
 
     // FIND ALL / GET ALL
     @GetMapping("/find")
-    public ResponseEntity<List<SpecialistDTO>> findAll(@RequestParam Optional<@PositiveOrZero Integer> page,
-                                                       @RequestParam Optional<@PositiveOrZero Integer> size) {
-        Pageable pageable;
-        if (size.isPresent()) {
-            pageable = Pageable.ofSize(size.get()).withPage(page.orElse(0));
-        } else {
-            pageable = Pageable.unpaged();
-        }
-        List<SpecialistDTO> specialistDTOList = specialistService.findAll(pageable);
+    public ResponseEntity<List<SpecialistDTO>> findAll(Pageable page) {
+        List<SpecialistDTO> specialistDTOList = specialistService.findAll(page);
         return ResponseEntity.ok(specialistDTOList);
     }
 
@@ -68,5 +59,4 @@ public class SpecialistController {
         specialistService.update(specialistDTO);
         return ResponseEntity.ok().body("El especialista fue modificado con éxito");
     }
-
-} // Cierre
+}

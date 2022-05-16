@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/patients")
@@ -31,17 +29,10 @@ public class PatientController {
         return ResponseEntity.ok().body("El Paciente fue agregado con éxito");
     }
 
-    // FIND ALL / GET ALL//TODO Por qué me marca como advertencia los optionals del request param? pasa en los 3 controllers,
+    // FIND ALL
     @GetMapping("/find")
-    public ResponseEntity<List<PatientDTO>> findAll(@RequestParam Optional<@PositiveOrZero Integer> page,
-                                                    @RequestParam Optional<@PositiveOrZero Integer> size) {
-        Pageable pageable;
-        if (size.isPresent()) {
-            pageable = Pageable.ofSize(size.get()).withPage(page.orElse(0));
-        } else {
-            pageable = Pageable.unpaged();
-        }
-        List<PatientDTO> patientDTOList = patientService.findAll(pageable);
+    public ResponseEntity<List<PatientDTO>> findAll(Pageable page) {
+        List<PatientDTO> patientDTOList = patientService.findAll(page);
         return ResponseEntity.ok(patientDTOList);
     }
 
@@ -63,9 +54,7 @@ public class PatientController {
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody PatientDTO patientDTO) throws Exception {
         patientDTO.setId(id);
-       patientService.update(patientDTO);
+        patientService.update(patientDTO);
         return ResponseEntity.ok().body("El paciente fue modificado con éxito");
     }
-
-
-} // Cierre
+}

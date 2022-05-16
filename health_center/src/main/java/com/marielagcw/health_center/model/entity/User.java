@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name="Users")
+@Table(name = "Users")
 @Setter
 @Getter
 public class User {
@@ -18,12 +18,11 @@ public class User {
     private String name;
     private String password;
 
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.REFRESH, CascadeType.PERSIST})
     @JoinTable(
-            name="UserRoles",
-            joinColumns = @JoinColumn(name ="id_user"),
-            inverseJoinColumns = @JoinColumn(name="id_rol")
+            name = "UserRoles",
+            joinColumns = @JoinColumn(name = "id_user"),
+            inverseJoinColumns = @JoinColumn(name = "id_rol")
     )
     private Set<Rol> roles;
-
 }

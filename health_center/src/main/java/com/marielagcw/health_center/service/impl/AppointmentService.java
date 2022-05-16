@@ -6,6 +6,7 @@ import com.marielagcw.health_center.model.entity.Appointment;
 import com.marielagcw.health_center.repository.IAppointmentRepository;
 import com.marielagcw.health_center.service.IAppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -35,9 +36,9 @@ public class AppointmentService implements IAppointmentService {
 
     // FIND ALL
     @Override
-    public List<AppointmentDTO> findAll(Pageable pageable) {
-        List<Appointment> appointmentList = appointmentRepository.findAll();
-        return appointmentList.stream()
+    public List<AppointmentDTO> findAll(Pageable page) {
+        Page<Appointment> appointmentPage = appointmentRepository.findAll(page);
+        return appointmentPage.stream()
                 .map(appointment -> mapper.convertValue(appointment, AppointmentDTO.class))
                 .collect(Collectors.toList());
     }
@@ -62,5 +63,4 @@ public class AppointmentService implements IAppointmentService {
         Appointment updatedAppointment = mapper.convertValue(appointmentDTO, Appointment.class);
         appointmentRepository.saveAndFlush(updatedAppointment);
     }
-
-} //Cierre
+}
