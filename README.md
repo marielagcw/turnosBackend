@@ -16,7 +16,7 @@ Objetivos técnicos:
 - Desarrollo de la capa de acceso a datos utilizando Spring Data e Hibernate.
 - Desarrollo de la capa de datos utilizando H2 y con la posibilidad de cambiar a PostgreSQL para el deploy completo en Heroku.
 - Desarrollo de la capa de negocio.
-- Desarrollo de la capa de presentación utilizando Spring Boot MVC con los controladores y desarrollando en otro proyecto el frontend utilizando React.
+- Desarrollo de la capa de presentación utilizando Spring Boot para crear un REST Api y desarrollando en otro proyecto el frontend utilizando React.
 - Manejo de excepciones y logger con Slf4j.
 - Seguridad utilizando Spring Security y JSON Web Token (JWT).
 - Tests de integración con MockMVC.
