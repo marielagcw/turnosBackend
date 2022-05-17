@@ -1,5 +1,4 @@
 # turnosBackend
-#En desarrollo (´▽`ʃ♡ƪ)
 
 Holis! Este es mi adaptación personal del proyecto integrador que presentamos como parte de la materia Backend de la carrera Certified Tech Developer de Digital House.
 
@@ -28,4 +27,7 @@ Información para el ingreso al sistema y generación de token de seguridad:
 - username: username
 - password: password
 
+Localhost: 8080
+Heroku app: https://healthcentermarielagcw.herokuapp.com/
+Documentación: https://healthcentermarielagcw.herokuapp.com/swagger-ui/index.html
 
