@@ -27,7 +27,8 @@ Información para el ingreso al sistema y generación de token de seguridad:
 - username: username
 - password: password
 
-Localhost: 8080
-Heroku app: https://healthcentermarielagcw.herokuapp.com/
-Documentación: https://healthcentermarielagcw.herokuapp.com/swagger-ui/index.html
+
+- Localhost: 8080
+- Heroku app: https://healthcentermarielagcw.herokuapp.com/
+- Documentación: https://healthcentermarielagcw.herokuapp.com/swagger-ui/index.html
 
