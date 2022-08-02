@@ -23,35 +23,35 @@ public class PatientController {
     // METHODS
 
     // SAVE / POST
-    @PostMapping("/new")
+    @PostMapping
     public ResponseEntity<?> save(@RequestBody @Valid PatientDTO patientDTO) {
         patientService.saveAndFlush(patientDTO);
         return ResponseEntity.ok().body("El Paciente fue agregado con éxito");
     }
 
     // FIND ALL
-    @GetMapping("/find")
+    @GetMapping
     public ResponseEntity<List<PatientDTO>> findAll(Pageable page) {
         List<PatientDTO> patientDTOList = patientService.findAll(page);
         return ResponseEntity.ok(patientDTOList);
     }
 
     // FIND BY ID // GET BY ID
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<PatientDTO> findById(@PathVariable @NotNull Long id) {
         PatientDTO foundPatientDTO = patientService.findById(id);
         return ResponseEntity.ok(foundPatientDTO);
     }
 
     // DELETE BY ID
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         patientService.deleteById(id);
         return ResponseEntity.ok().body("El Paciente con fue eliminado con éxito");
     }
 
     // UPDATE BY ID / PUT BY ID
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody PatientDTO patientDTO) throws Exception {
         patientDTO.setId(id);
         patientService.update(patientDTO);
