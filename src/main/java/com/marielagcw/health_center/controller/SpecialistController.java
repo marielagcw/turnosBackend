@@ -25,35 +25,35 @@ public class SpecialistController {
     // METHODS
 
     // SAVE / POST
-    @PostMapping("/new")
+    @PostMapping
     public ResponseEntity<?> save(@RequestBody @Valid SpecialistDTO specialistDTO) {
         specialistService.saveAndFlush(specialistDTO);
         return ResponseEntity.ok().body("El Especialista fue agregado con éxito");
     }
 
     // FIND ALL / GET ALL
-    @GetMapping("/find")
+    @GetMapping
     public ResponseEntity<List<SpecialistDTO>> findAll(Pageable page) {
         List<SpecialistDTO> specialistDTOList = specialistService.findAll(page);
         return ResponseEntity.ok(specialistDTOList);
     }
 
     // FIND BY ID // GET BY ID
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<SpecialistDTO> findById(@PathVariable @NotNull Long id) {
         SpecialistDTO foundSpecialistDTO = specialistService.findById(id);
         return ResponseEntity.ok(foundSpecialistDTO);
     }
 
     // DELETE BY ID
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         specialistService.deleteById(id);
         return ResponseEntity.ok().body("El Especialista fue eliminado con éxito");
     }
 
     // UPDATE BY ID / PUT BY ID
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody SpecialistDTO specialistDTO) throws Exception {
         specialistDTO.setId(id);
         specialistService.update(specialistDTO);
