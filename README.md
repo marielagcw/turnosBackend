@@ -29,6 +29,4 @@ Información para el ingreso al sistema y generación de token de seguridad:
 
 
 - Localhost: 8080
-- Heroku app: https://healthcentermarielagcw.herokuapp.com/
-- Documentación: https://healthcentermarielagcw.herokuapp.com/swagger-ui/index.html
-
+- Documentación: [Live Demo](https://waru.itav.com.ar/healthcenter/swagger-ui/index.html)
