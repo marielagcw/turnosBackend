@@ -1,32 +1,86 @@
-# turnosBackend
+# 🏥 Health Center – Sistema de Gestión de Turnos
 
-Holis! Este es mi adaptación personal del proyecto integrador que presentamos como parte de la materia Backend de la carrera Certified Tech Developer de Digital House.
+Backend RESTful API para la gestión integral de turnos en un centro de salud.
 
-El proyecto es un sistema de turnos para un centro de salud.
+El sistema permite administrar especialistas, pacientes y turnos, incorporando autenticación segura y separación clara de capas siguiendo buenas prácticas de arquitectura con Spring Boot.
 
-Objetivos del sistema:
-- Administración de datos de los especialistas: agregar, listar, modificar y eliminar especilistas. 
-- Administración de datos de los pacientes: listar, agregar, modificar y eliminar pacientes. 
-- Administrar turnos: agregar, listar, modificar y eliminar turnos.
-- Login: Ingresar con usuario y contraseña al sistema.
+---
 
-Objetivos técnicos:
-- Desarrollo de la capa de entidades de negocio.
-- Desarrollo de la capa de acceso a datos utilizando Spring Data e Hibernate.
-- Desarrollo de la capa de datos utilizando H2 y con la posibilidad de cambiar a PostgreSQL para el deploy completo en Heroku.
-- Desarrollo de la capa de negocio.
-- Desarrollo de la capa de presentación utilizando Spring Boot para crear un REST Api y desarrollando en otro proyecto el frontend utilizando React.
-- Manejo de excepciones y logger con Slf4j.
-- Seguridad utilizando Spring Security y JSON Web Token (JWT).
-- Tests de integración con MockMVC.
-- Documentación utilizando Swagger.
-- Deploy en Heroku configurando pipelines y base de datos. 
-- Documentación y requests creadas en Postman para probar el funcionamiento desde el lado del cliente. 
+## 🎯 Objetivo del Proyecto
 
-Información para el ingreso al sistema y generación de token de seguridad:
-- username: username
-- password: password
+Diseñar y desarrollar una API robusta y mantenible que permita:
 
+- Gestión CRUD de especialistas.
+- Gestión CRUD de pacientes.
+- Gestión de turnos médicos con validaciones de integridad.
+- Autenticación y autorización basada en JWT.
+- Documentación y testing integral del sistema.
 
-- Localhost: 8080
-- Documentación: [Live Demo](https://waru.itav.com.ar/healthcenter/swagger-ui/index.html)
+El foco estuvo en estructurar correctamente las capas del backend y aplicar principios de diseño orientados a escalabilidad y claridad.
+
+---
+
+## 🧩 Arquitectura y Diseño
+
+El proyecto sigue una arquitectura en capas:
+
+- **Capa de presentación:** Controllers REST desarrollados con Spring Boot.
+- **Capa de negocio:** Services con lógica de validación y reglas del dominio.
+- **Capa de acceso a datos:** Repositories utilizando Spring Data JPA.
+- **Capa de persistencia:** Base de datos H2 (configurable a PostgreSQL para entorno productivo).
+
+Principios aplicados:
+
+- Separación de responsabilidades.
+- Manejo centralizado de excepciones.
+- Logging estructurado con SLF4J.
+- Documentación automática de endpoints con Swagger.
+
+---
+
+## 🔐 Seguridad
+
+- Implementación de autenticación con **Spring Security**.
+- Generación y validación de **JSON Web Tokens (JWT)**.
+- Protección de endpoints mediante configuración de seguridad y filtros personalizados.
+
+---
+
+## 🧪 Testing
+
+- Tests de integración utilizando **MockMvc**.
+- Validación de comportamiento de endpoints.
+- Colección de requests documentada en Postman para pruebas manuales.
+
+---
+
+## 🚀 Deploy
+
+- Deploy realizado en Heroku.
+- Configuración de pipelines.
+- Adaptación de base de datos a PostgreSQL para entorno productivo.
+
+---
+
+## 🛠 Tecnologías utilizadas
+
+- Java
+- Spring Boot
+- Spring Security
+- Spring Data JPA
+- Hibernate
+- H2 / PostgreSQL
+- JWT
+- MockMvc
+- Swagger
+- React (frontend desarrollado en proyecto separado)
+
+---
+
+## 💡 Desafíos técnicos abordados
+
+- Implementación de autenticación stateless con JWT.
+- Manejo consistente de excepciones y respuestas HTTP.
+- Modelado de relaciones entre entidades (Especialista, Paciente, Turno).
+- Separación adecuada entre lógica de negocio y persistencia.
+- Preparación del proyecto para migración de base de datos en producción.
